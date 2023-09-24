@@ -1,2 +1,8 @@
 # python-serial-device-link-path-to-device
-A python programme to identify serial devices and their paths on linux using JSON to send and recieve device information
+
+Sometimes needing to know the path of a specific serial device in linux or windows is necessary to reduce 
+overhead in calling all possible devices connected to the computer. This code uses JSON to send 
+messages between python and the serial device and it tags the identity of the serial device to the path 
+of the device in linux in a dictionary.
+
+Hope this helps :) 
