@@ -26,7 +26,7 @@ import serial.tools.list_ports
 import time
 
 baud_rate = 115200  # default baud rate
-device_id_list = ["1a86:7523"]  # list of device_ids to scan for
+device_id_list = ["1a86:7523"]  # list of device_ids to scan for, use 'lsusb' command on terminal
 device_dictionary = {}
 
 
