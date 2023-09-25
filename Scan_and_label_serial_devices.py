@@ -47,7 +47,6 @@ def detect_usb_devices(device_id_list):
         device_metadata = get_usb_device_metadata(device)
         if device_metadata["device_id"] in device_id_list:
             usb_device_list.append(device_metadata)
-
     return usb_device_list
 
 
@@ -57,7 +56,9 @@ def list_serial_ports():
     ports = serial.tools.list_ports.comports()
     serial_ports = [port.device for port in ports]
     for available_port in serial_ports:
-        ports_list.append(available_port)
+        # append to list only if its /ttyUSB*
+        if 'USB' in available_port: 
+            ports_list.append(available_port)
     return serial_ports
 
 
