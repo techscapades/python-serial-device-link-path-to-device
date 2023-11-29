@@ -84,6 +84,7 @@ if __name__ == "__main__":
     print(serial_objects)
 
     i = 0  # iterator for device_ports list
+    unknown_devices = 0
     for serial_object in serial_objects:
         while True:  # keep sending the message on the same serial port until response is received
             data = json.dumps({"message": "on"})  # send some JSON data
@@ -102,6 +103,12 @@ if __name__ == "__main__":
                     break  # message is successflly recieved
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON data: {e}")  # might happen
+            except:
+                print("unkown device detected")
+                unknown_devices = unkown_devices + 1
+                device_dictionary['unknown_devices'] = unknown_devices
+                i = i + 1
+                break
 
     # include this for double checking device types
     device_dictionary['usb_devices'] = usb_devices
